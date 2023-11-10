@@ -37,17 +37,19 @@ const NavBar = () => {
   return (
     <Navbar bg="primary" data-bs-theme="dark">
       <Container>
-        <Navbar.Brand href="/">Navbar</Navbar.Brand>
+        <Navbar.Brand href="/">Home</Navbar.Brand>
         <Nav className="me-auto">
           {userData ? (
             <>
-              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/ExploreDeals">Explore Deals</Nav.Link>
+              <Nav.Link href="/AcceptedDeals">Accepted Deals</Nav.Link>
+              <Nav.Link href="/CreatedDeals">Created Deals</Nav.Link>
               <Nav.Link href="/Profile">Profile</Nav.Link>
+
               <Nav.Link onClick={handleSignOut}>Sign Out</Nav.Link>
             </>
           ) : (
             <>
-              <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/Signin">Sign in</Nav.Link>
             </>
           )}

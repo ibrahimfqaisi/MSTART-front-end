@@ -2,19 +2,15 @@ import React, { useState, useEffect } from 'react';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { Nav } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { Nav } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
-
-
-
 const Signin = () => {
-  const [userData, setUserData] = useState(null);
-
-  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
@@ -34,9 +30,9 @@ const Signin = () => {
     };
 
     const response = await fetch(url, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
     });
@@ -44,64 +40,47 @@ const Signin = () => {
     const receivedData = await response.json();
 
     if (response.status === 200) {
-      const userData = receivedData["user"];
+      const userData = receivedData['user'];
       console.log(userData);
 
       // Set data as a cookie with a 15-minute expiration time
       Cookies.set('userData', JSON.stringify(userData), { expires: 1 / 96 }); // 1/96 is equivalent to 15 minutes
-      navigate("/");
+      navigate('/');
       window.location.reload();
     } else if (response.status === 401) {
-      alert("Invalid email or password");
+      alert('Invalid email or password');
     }
   };
 
-  const getUserDataFromCookies = async () => {
-    return new Promise((resolve) => {
-      const userDataCookie = Cookies.get('userData');
-      if (userDataCookie) {
-        const userData = JSON.parse(userDataCookie);
-        setUserData(userData);
-
-        console.log('User Data from Cookies:', userData);
-        // Do something with userData
-        resolve(userData);
-      } else {
-        console.log('User Data not found in Cookies');
-        resolve(null);
-      }
-    });
-  };
-  
-  useEffect(() => {
-    const checkUserData = async () => {
-      const userDataFromCookies = await getUserDataFromCookies();
-      if (userDataFromCookies) {
-        setUserData(userDataFromCookies);
-        navigate("/", { replace: true });
-      }
-    };
-  
-    checkUserData();
-  }, [navigate]);
-  
   return (
-<>
-  <FloatingLabel controlId="floatingInput" label="Email address" className="mb-3">
-    <Form.Control type="email" placeholder="name@example.com" onChange={handleEmailChange} />
-  </FloatingLabel>
-  <FloatingLabel controlId="floatingPassword" label="Password">
-    <Form.Control type="password" placeholder="Password" onChange={handlePasswordChange} />
-  </FloatingLabel>
-  <Button variant="primary" onClick={handleButtonClick}>
-    Login
-  </Button>{' '}
-  <Nav>
-    <Nav.Link href="/Signup">Sign up</Nav.Link>
-  </Nav>
-</>
-
-
+    <div
+      className="d-flex flex-column align-items-center justify-content-center"
+      style={{ height: '100vh', background: '#f8f9fa' }} // Light gray background color
+    >
+      <Form
+        onSubmit={handleButtonClick}
+        style={{
+          width: '400px',
+          background: 'white',
+          padding: '20px',
+          borderRadius: '8px',
+          boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+        }}
+      >
+        <FloatingLabel controlId="floatingInput" label="Email address" className="mb-3">
+          <Form.Control type="email" placeholder="name@example.com" onChange={handleEmailChange} />
+        </FloatingLabel>
+        <FloatingLabel controlId="floatingPassword" label="Password">
+          <Form.Control type="password" placeholder="Password" onChange={handlePasswordChange} />
+        </FloatingLabel>
+        <Button type="submit" variant="primary" style={{ marginTop: '20px', width: '100%' }}>
+          Login
+        </Button>{' '}
+      </Form>
+      <Nav style={{ marginTop: '20px' }}>
+        <Nav.Link href="/Signup">Sign up</Nav.Link>
+      </Nav>
+    </div>
   );
 };
 
