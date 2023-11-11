@@ -20,11 +20,11 @@ export default function DealCard({ element, userid }) {
             body: JSON.stringify(data),
         });
 
-        const receivedData = await response.json();
+        // const receivedData = await response.json();
 
         if (response.status === 201) {
-            const userData = receivedData;
             alert("Deal claimed successfully!");
+            window.location.reload();
 
             // Set data as a cookie with a 15-minute expiration time
         } else if (response.status === 401) {

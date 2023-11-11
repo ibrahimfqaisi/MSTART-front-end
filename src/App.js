@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./Components/Home"
 import NavBar from "./Components/NavBar"
-import  Profile from "./Components/Profile"
+import  Profile from "./Components/Profile/Profile"
 import Signin from "./Components/Signin"
 import Signup from "./Components/Signup"
 import ExploreDeals from "./Components/ExploreDealsCards/ExploreDeals"
@@ -22,7 +22,7 @@ function App() {
 
 
 
-        {/* ... */}
+       
       </Routes>;
     </>
   );

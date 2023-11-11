@@ -5,7 +5,7 @@ import Cookies from 'js-cookie';
 import DealsCards from "./DealsCards"
 
 export default function ExploreDeals() {
-  const [userData, setUserData] = useState(1);
+  const [userData, setUserData] = useState([]);
   const [DealsData, setDealsData] = useState([]);
 
   const navigate = useNavigate();

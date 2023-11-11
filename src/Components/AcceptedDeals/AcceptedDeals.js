@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import AcceptedCards from "./AcceptedCards"
 export default function AcceptedDeals() {
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState([]);
   const [DealsData, setDealsData] = useState([]);
   const [totalPages, setTotalPages] = useState(1);
   const [myPages, setMyPages] = useState(1);
@@ -70,7 +70,7 @@ export default function AcceptedDeals() {
       <div style={{ marginBottom: '40px', marginTop: '20px', textAlign: 'center' }}>
         {DealsData.length !== 0 ? (
           <>
-            <h1 style={{ fontSize: '24px', color: '#333', marginBottom: '20px' }}>Claimed Deals</h1>
+            <h1 style={{ fontSize: '24px', color: '#333', marginBottom: '20px' }}>Your Claimed Deals</h1>
             <AcceptedCards DealsData={DealsData} />
   
             {totalPages >= 1 && (

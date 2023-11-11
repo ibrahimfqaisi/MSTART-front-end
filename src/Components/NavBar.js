@@ -45,7 +45,6 @@ const NavBar = () => {
               <Nav.Link href="/AcceptedDeals">Accepted Deals</Nav.Link>
               <Nav.Link href="/CreatedDeals">Created Deals</Nav.Link>
               <Nav.Link href="/Profile">Profile</Nav.Link>
-
               <Nav.Link onClick={handleSignOut}>Sign Out</Nav.Link>
             </>
           ) : (

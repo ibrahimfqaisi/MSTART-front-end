@@ -73,6 +73,7 @@ const Signup = () => {
           padding: '20px',
           borderRadius: '8px',
           boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+          marginTop: '50px',
         }}
       >
         <FloatingLabel controlId="floatingName" label="Name" className="mb-3">
@@ -101,10 +102,10 @@ const Signup = () => {
         <Button type="submit" variant="primary" style={{ marginTop: '20px', width: '100%' }}>
           Signup
         </Button>{' '}
-        <Nav>
+      </Form>
+        <Nav >
           <Nav.Link href="/Signin">Signin</Nav.Link>
         </Nav>
-      </Form>
     </div>
   );
 };
