@@ -5,63 +5,78 @@ import "./Profile.css";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
-
+import  Axios  from 'axios';
 export default function Profile() {
   const navigate = useNavigate();
   const [userData, setUserData] = useState([]);
   const [ProfileData, setProfileData] = useState([]);
   const [ShowForm, setShowForm] = useState(false);
-  const [UrlPhoto, setUrlPhoto] = useState(null);
-
-  async function handlePhotoUrlChange(event) {
-    setUrlPhoto(event.target.value);
-  }
-
+  const [Photo, setPhoto] = useState(null);
+  
+  
   async function handleEditPhoto(event) {
     event.preventDefault();
     setShowForm(true);
   }
 
+  async function handlePhotoChange() {
+
+  }
+  
+
+
   async function handleButtonClick(event) {
     event.preventDefault();
-    let url = `${process.env.REACT_APP_SERVER_URL}/update-photo-url`;
-
-    let data = {
-      userId: ProfileData.id,
-      photo_url: UrlPhoto,
-    };
-
-    console.log(data);
-
+    setShowForm(false);
     try {
-      const response = await fetch(url, {
+      const formdata = new FormData();
+      formdata.append("file", Photo);
+      formdata.append("upload_preset", "wst5wvjr");
+  
+      const response = await fetch("https://api.cloudinary.com/v1_1/dcg2uvtqt/image/upload", {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+        body: formdata,
       });
+  
+      const responseData = await response.json();
+  
+      const UrlPhoto=`https://res.cloudinary.com/dcg2uvtqt/image/upload/${responseData.public_id}`;
+      let url = `${process.env.REACT_APP_SERVER_URL}/update-photo-url`;
 
-      if (response.ok) {
-        const dealData = await response.json();
-        console.log(dealData);
-        // alert('Photo updated successfully');
-        window.location.reload();
-      } else {
-        // Check for a 500 Internal Server Error
-        if (response.status === 500) {
-          alert('Failed to update the photo. Please try again later.');
+      let data = {
+        userId: ProfileData.id,
+        photo_url: UrlPhoto,
+      };
+  
+  
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+  
+        if (response.ok) {
+          window.location.reload();
         } else {
-          // Handle other error statuses here if needed
-          alert('An error occurred. Please try again.');
+          if (response.status === 500) {
+            alert('Failed to update the photo. Please try again later.');
+          } else {
+            alert('An error occurred. Please try again.');
+          }
         }
+      } catch (error) {
+        console.error('An unexpected error occurred:', error);
+        alert('An unexpected error occurred. Please try again later.');
+      } finally {
       }
     } catch (error) {
-      console.error('An unexpected error occurred:', error);
-      alert('An unexpected error occurred. Please try again later.');
-    } finally {
-      setShowForm(false);
+      console.error('Error uploading photo to Cloudinary:', error);
     }
+     await handlePhotoChange()
+
   }
 
   async function getProfile(id) {
@@ -112,7 +127,6 @@ export default function Profile() {
   }, [navigate]);
 
   useEffect(() => {
-    console.log(2, ProfileData);
   }, [ProfileData]);
 
   return (
@@ -153,8 +167,8 @@ export default function Profile() {
               boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
             }}
           >
-            <FloatingLabel controlId="floatingInput" label="Photo URL" className="mb-3">
-              <Form.Control type="url" placeholder="Enter photo URL" onChange={handlePhotoUrlChange} required />
+            <FloatingLabel controlId="floatingInput" label="Photo" className="mb-3">
+              <Form.Control type="file"  onChange={(event) =>{setPhoto(event.target.files[0])}} required />
             </FloatingLabel>
 
             <Button type="submit" variant="primary" style={{ marginTop: '20px', width: '100%' }}>
