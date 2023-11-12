@@ -39,23 +39,37 @@ const NavBar = () => {
       <Container>
         <Navbar.Brand href="/">Home</Navbar.Brand>
         <Nav className="me-auto">
+          {console.log(55555555555, userData)}
           {userData ? (
-            <>
-              <Nav.Link href="/ExploreDeals">Explore Deals</Nav.Link>
-              <Nav.Link href="/AcceptedDeals">Accepted Deals</Nav.Link>
-              <Nav.Link href="/CreatedDeals">Created Deals</Nav.Link>
-              <Nav.Link href="/Profile">Profile</Nav.Link>
-              <Nav.Link onClick={handleSignOut}>Sign Out</Nav.Link>
-            </>
+            userData.is_admin ? (
+              <>
+                {/* Admin navigation links */}
+                <Nav.Link href="/admin/UsersGrid" > Users Grid</Nav.Link>
+                <Nav.Link href="/admin/DealsGrid" >Deals Grid</Nav.Link>
+                <Nav.Link href="/admin/ClaimedDeals" >Claimed Deals</Nav.Link>
+                <Nav.Link href="/admin/AddAdmin" >Add Admin</Nav.Link>
+                <Nav.Link onClick={handleSignOut}>Sign Out</Nav.Link>
+
+              </>
+            ) : (
+              <>
+                {/* Regular user navigation links */}
+                <Nav.Link href="/ExploreDeals">Explore Deals</Nav.Link>
+                <Nav.Link href="/AcceptedDeals">Accepted Deals</Nav.Link>
+                <Nav.Link href="/CreatedDeals">Created Deals</Nav.Link>
+                <Nav.Link href="/Profile">Profile</Nav.Link>
+                <Nav.Link onClick={handleSignOut}>Sign Out</Nav.Link>
+              </>
+            )
           ) : (
             <>
+              {/* Rendered when userData is not available (user is not authenticated) */}
               <Nav.Link href="/Signin">Sign in</Nav.Link>
             </>
           )}
         </Nav>
       </Container>
     </Navbar>
-  );
-};
-
+  )
+}
 export default NavBar;

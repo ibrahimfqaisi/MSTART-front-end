@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Nav } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
 import DealsCards from "./DealsCards"
@@ -43,7 +42,6 @@ export default function ExploreDeals() {
         // console.log(userData["id"])
         resolve(userData);
       } else {
-        // console.log('User Data not found in Cookies');
         resolve(null);
       }
     });
