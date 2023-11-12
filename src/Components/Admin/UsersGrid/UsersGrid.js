@@ -178,6 +178,7 @@ const UsersGrid = () => {
                           </label>
                         </div>
                       </th>
+                      <th scope="col">User Id</th>
                       <th scope="col">name</th>
                       <th scope="col">phone</th>
                       <th scope="col">email</th>
@@ -202,6 +203,7 @@ const UsersGrid = () => {
                             </label>
                           </div>
                         </td>
+                        <td>{user.id}</td>
                         <td>{user.name}</td>
                         <td>{user.phone}</td>
                         <td>{user.email}</td>

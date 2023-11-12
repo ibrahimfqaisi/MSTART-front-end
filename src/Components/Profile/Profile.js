@@ -31,7 +31,7 @@ export default function Profile() {
     try {
       const formdata = new FormData();
       formdata.append("file", Photo);
-      formdata.append("upload_preset", "wst5wvjr");
+      formdata.append("upload_preset", `${process.env.REACT_APP_PASS_CLOUD}`);
 
       const response = await fetch("https://api.cloudinary.com/v1_1/dcg2uvtqt/image/upload", {
         method: 'POST',
@@ -39,8 +39,7 @@ export default function Profile() {
       });
 
       const responseData = await response.json();
-
-      const UrlPhoto = `https://res.cloudinary.com/${process.env.cloudinary_password}/image/upload/${responseData.public_id}`;
+      const UrlPhoto = `https://res.cloudinary.com/${process.env.REACT_APP_NAME_CLOUD}/image/upload/${responseData.public_id}`;
       let url = `${process.env.REACT_APP_SERVER_URL}/update-photo-url`;
       console.log(UrlPhoto);
       console.log(url);
@@ -61,7 +60,7 @@ export default function Profile() {
         });
 
         if (response.ok) {
-          // window.location.reload();
+          window.location.reload();
         } else {
           if (response.status === 500) {
             alert('Failed to update the photo. Please try again later.');
@@ -191,6 +190,11 @@ export default function Profile() {
               <i className="fa fa-pen fa-xs edit"></i>
               <table>
                 <tbody>
+                <tr>
+                    <td>User ID</td>
+                    <td>:</td>
+                    <td>{ProfileData.id}</td>
+                  </tr>
                   <tr>
                     <td>Phone</td>
                     <td>:</td>
