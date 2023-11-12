@@ -28,6 +28,9 @@ export default function AcceptedCard({ element }) {
         <ListGroup.Item>
           <strong>Deal ID:</strong> {element.deal_id}
         </ListGroup.Item>
+        <ListGroup.Item>
+          <strong>User claimed deal:</strong> {element.user_id}
+        </ListGroup.Item>
       </ListGroup>
     </Card>
   );
