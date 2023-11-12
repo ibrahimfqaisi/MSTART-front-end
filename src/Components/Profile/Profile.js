@@ -40,7 +40,7 @@ export default function Profile() {
   
       const responseData = await response.json();
   
-      const UrlPhoto=`https://res.cloudinary.com/dcg2uvtqt/image/upload/${responseData.public_id}`;
+      const UrlPhoto=`https://res.cloudinary.com/${process.env.cloudinary_password}/image/upload/${responseData.public_id}`;
       let url = `${process.env.REACT_APP_SERVER_URL}/update-photo-url`;
 
       let data = {
