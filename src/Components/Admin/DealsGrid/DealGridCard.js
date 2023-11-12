@@ -2,7 +2,7 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-export default function AcceptedCard({ element }) {
+export default function DealGridCard({ element }) {
   const cardStyle = {
     width: '18rem',
     marginBottom: '20px',
@@ -13,15 +13,14 @@ export default function AcceptedCard({ element }) {
   return (
     <Card style={cardStyle}>
       <Card.Body>
-        <Card.Title>Claimed Deal</Card.Title>
+        <Card.Title><strong>Deal Name : </strong>{element.name}</Card.Title>
       </Card.Body>
         <Card.Text>
-          <strong>Claimed Date:</strong><br /> {new Date(element.server_datetime).toLocaleString()}
+          <strong>Created Date:</strong><br />
+          {new Date(element.server_datetime).toLocaleString()}
         </Card.Text>
+        
       <ListGroup className="list-group-flush">
-        <ListGroup.Item>
-          <strong>Deal ID:</strong> {element.deal_id}
-        </ListGroup.Item>
         <ListGroup.Item>
           <strong>Amount:</strong> {element.amount} {element.currency}
         </ListGroup.Item>
@@ -29,7 +28,13 @@ export default function AcceptedCard({ element }) {
           <strong>Currency:</strong> {element.currency}
         </ListGroup.Item>
         <ListGroup.Item>
-          <strong>User claimed deal:</strong> {element.user_id}
+          <strong>Owner ID: </strong>{element.user_id}
+        </ListGroup.Item>
+        <ListGroup.Item>
+          <strong>status:</strong>  {element.status}
+        </ListGroup.Item>
+        <ListGroup.Item>
+          <strong>description:</strong><br />  {element.description}
         </ListGroup.Item>
       </ListGroup>
     </Card>

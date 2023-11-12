@@ -10,6 +10,7 @@ import AcceptedDeals from "./Components/AcceptedDeals/AcceptedDeals"
 import UsersGrid from "./Components/Admin/UsersGrid/UsersGrid"
 import AddAdmin from "./Components/Admin/AddAdmin"
 import ClaimedDeals from "./Components/Admin/ClaimedDeals/ClaimedDeals"
+import DealsGrid from "./Components/Admin/DealsGrid/DealsGrid"
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/admin/UsersGrid" element={<UsersGrid />} />
         <Route path="/admin/AddAdmin" element={<AddAdmin />} />
         <Route path="/admin/ClaimedDeals" element={<ClaimedDeals />} />
+        <Route path="/admin/DealsGrid" element={<DealsGrid />} />
 
 
 

@@ -154,9 +154,8 @@ const UsersGrid = () => {
       <div style={{ marginBottom: '40px', marginTop: '20px', textAlign: 'center' }}>
         {UsersData.length !== 0 ? (
           <>
-            <h1 style={{ fontSize: '24px', color: '#333', marginBottom: '20px' }}>Your Claimed Deals</h1>
             <div className="container">
-              <h1>Table selection</h1>
+              <h1>User Details</h1>
               <hr />
               <div className="row">
                 <table className="table row-select">

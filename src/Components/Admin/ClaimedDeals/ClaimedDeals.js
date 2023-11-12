@@ -97,7 +97,6 @@ export default function AcceptedDeals() {
         {DealsData.length !== 0 ? (
           <>
 
-            <h1 style={{ fontSize: '24px', color: '#333', marginBottom: '20px' }}>Your Claimed Deals</h1>
             <AcceptedCards DealsData={DealsData} />
 
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>

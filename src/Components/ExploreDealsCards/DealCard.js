@@ -38,7 +38,7 @@ export default function DealCard({ element, userid }) {
                 <Card.Body>
                     <Card.Title>{element.name}</Card.Title>
                     <Card.Text>
-                        {element.description}
+                    <strong>description:</strong> <br/> {element.description}
                     </Card.Text>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
