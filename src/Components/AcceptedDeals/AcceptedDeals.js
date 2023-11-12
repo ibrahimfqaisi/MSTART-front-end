@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import AcceptedCards from "./AcceptedCards"
+import PaginationComponent from '../PaginationComponent';
+
 export default function AcceptedDeals() {
   const [userData, setUserData] = useState([]);
   const [DealsData, setDealsData] = useState([]);
@@ -72,20 +74,17 @@ export default function AcceptedDeals() {
           <>
             <h1 style={{ fontSize: '24px', color: '#333', marginBottom: '20px' }}>Your Claimed Deals</h1>
             <AcceptedCards DealsData={DealsData} />
-  
-            {totalPages >= 1 && (
-              <div style={{ textAlign: 'center' }}>
-                {Array.from({ length: totalPages }, (_, index) => (
-                  <span
-                    key={index + 1}
-                    style={{ cursor: 'pointer', marginRight: '5px', fontSize: '18px', color: '#007BFF' }}
-                    onClick={() => handlePageClick(index + 1)}
-                  >
-                    {index + 1}
-                  </span>
-                ))}
-              </div>
-            )}
+
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              {totalPages >= 1 && (
+                <PaginationComponent
+                  totalPages={totalPages}
+                  currentPage={myPages}
+                  onPageClick={handlePageClick}
+                />
+              )}
+            </div>
+
           </>
         ) : (
           <h1 style={{ fontSize: '24px', color: '#333', marginTop: '20px' }}>No Claimed Deals Available</h1>
@@ -93,5 +92,5 @@ export default function AcceptedDeals() {
       </div>
     </>
   );
-  
+
 };
