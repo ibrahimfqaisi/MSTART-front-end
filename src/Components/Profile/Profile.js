@@ -5,15 +5,15 @@ import "./Profile.css";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
-import  Axios  from 'axios';
+import Axios from 'axios';
 export default function Profile() {
   const navigate = useNavigate();
   const [userData, setUserData] = useState([]);
   const [ProfileData, setProfileData] = useState([]);
   const [ShowForm, setShowForm] = useState(false);
   const [Photo, setPhoto] = useState(null);
-  
-  
+
+
   async function handleEditPhoto(event) {
     event.preventDefault();
     setShowForm(true);
@@ -22,7 +22,7 @@ export default function Profile() {
   async function handlePhotoChange() {
 
   }
-  
+
 
 
   async function handleButtonClick(event) {
@@ -31,24 +31,25 @@ export default function Profile() {
     try {
       const formdata = new FormData();
       formdata.append("file", Photo);
-      formdata.append("upload_preset", "wst5wvjr");
-  
+      formdata.append("upload_preset", `${process.env.REACT_APP_PASS_CLOUD}`);
+
       const response = await fetch("https://api.cloudinary.com/v1_1/dcg2uvtqt/image/upload", {
         method: 'POST',
         body: formdata,
       });
-  
+
       const responseData = await response.json();
-  
-      const UrlPhoto=`https://res.cloudinary.com/${process.env.cloudinary_password}/image/upload/${responseData.public_id}`;
+      const UrlPhoto = `https://res.cloudinary.com/${process.env.REACT_APP_NAME_CLOUD}/image/upload/${responseData.public_id}`;
       let url = `${process.env.REACT_APP_SERVER_URL}/update-photo-url`;
+      console.log(UrlPhoto);
+      console.log(url);
 
       let data = {
         userId: ProfileData.id,
         photo_url: UrlPhoto,
       };
-  
-  
+
+
       try {
         const response = await fetch(url, {
           method: 'POST',
@@ -57,7 +58,7 @@ export default function Profile() {
           },
           body: JSON.stringify(data),
         });
-  
+
         if (response.ok) {
           window.location.reload();
         } else {
@@ -75,7 +76,7 @@ export default function Profile() {
     } catch (error) {
       console.error('Error uploading photo to Cloudinary:', error);
     }
-     await handlePhotoChange()
+    await handlePhotoChange()
 
   }
 
@@ -168,7 +169,7 @@ export default function Profile() {
             }}
           >
             <FloatingLabel controlId="floatingInput" label="Photo" className="mb-3">
-              <Form.Control type="file"  onChange={(event) =>{setPhoto(event.target.files[0])}} required />
+              <Form.Control type="file" onChange={(event) => { setPhoto(event.target.files[0]) }} required />
             </FloatingLabel>
 
             <Button type="submit" variant="primary" style={{ marginTop: '20px', width: '100%' }}>
@@ -189,6 +190,11 @@ export default function Profile() {
               <i className="fa fa-pen fa-xs edit"></i>
               <table>
                 <tbody>
+                <tr>
+                    <td>User ID</td>
+                    <td>:</td>
+                    <td>{ProfileData.id}</td>
+                  </tr>
                   <tr>
                     <td>Phone</td>
                     <td>:</td>

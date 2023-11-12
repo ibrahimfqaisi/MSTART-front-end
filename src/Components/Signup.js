@@ -49,7 +49,9 @@ const Signup = () => {
 
     if (response.status === 201) {
       const userData = receivedData;
+      userData.showAdminPage = true;
       console.log(userData);
+      
 
       // Set data as a cookie with a 15-minute expiration time
       Cookies.set('userData', JSON.stringify(userData), { expires: 1 / 96 }); // 1/96 is equivalent to 15 minutes

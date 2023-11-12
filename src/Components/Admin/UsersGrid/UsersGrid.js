@@ -178,12 +178,13 @@ const UsersGrid = () => {
                           </label>
                         </div>
                       </th>
+                      <th scope="col">User Id</th>
                       <th scope="col">name</th>
                       <th scope="col">phone</th>
                       <th scope="col">email</th>
                       <th scope="col">is_admin</th>
                       <th scope="col">Status</th>
-                      <th scope="col">last_login_datetime_utc</th>
+                      <th scope="col">last login </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -202,12 +203,13 @@ const UsersGrid = () => {
                             </label>
                           </div>
                         </td>
+                        <td>{user.id}</td>
                         <td>{user.name}</td>
                         <td>{user.phone}</td>
                         <td>{user.email}</td>
                         <td>{user && user.is_admin ? 'Yes' : 'No'}</td>
                         <td>{user.status}</td>
-                        <td>{user.last_login_datetime_utc}</td>
+                        <td> {new Date(user.last_login_datetime_utc).toLocaleString()}</td>
                       </tr>
                     ))}
                   </tbody>
