@@ -15,7 +15,7 @@ Welcome to DealHub Frontend! This React application provides a user-friendly int
    cd MSTART-front-end
     ```
 
-3. **Create Environment Variables:
+3. **Create Environment Variables:**
 Create a new file named .env in the root of your frontend project and add the following content:
 
 ```
