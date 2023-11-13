@@ -58,7 +58,7 @@ const NavBar = () => {
   return (
     <Navbar bg="primary" data-bs-theme="dark">
       <Container>
-        <Navbar.Brand href="/">Home</Navbar.Brand>
+        <Navbar.Brand href="/">DealHub</Navbar.Brand>
         <Nav className="me-auto">
           {console.log(55555555555, userData)}
           {userData ? (

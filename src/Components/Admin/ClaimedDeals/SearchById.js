@@ -26,7 +26,7 @@ function SearchById({ setSearchID, handleIdSubmit }) {
           <Col xs="auto">
             <Form.Control
               type="Number"
-              placeholder="Search By Owner ID"
+              placeholder="UserID"
               className="mr-sm-2"
               value={ownerId}
               onChange={handleInputChange}

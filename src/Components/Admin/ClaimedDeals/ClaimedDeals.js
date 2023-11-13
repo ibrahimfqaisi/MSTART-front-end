@@ -33,8 +33,9 @@ export default function AcceptedDeals() {
       console.error('Error during get Deals Data:', error);
     }
   }
-  async function handleIdSubmit(searchID) {
-    let url = `${process.env.REACT_APP_SERVER_URL}/claimedDeals?userId=${userData.id}&page=1&searchUserId=${searchID}`;
+  async function handleIdSubmit(searchIDd) {
+    console.log(searchIDd,555555675676637376376378678678678678);
+    let url = `${process.env.REACT_APP_SERVER_URL}/claimedDealsAdmin?userId=${userData.id}&page=1&searchUserId=${searchIDd}`;
     console.log(url);
     try {
       const response = await fetch(url, {

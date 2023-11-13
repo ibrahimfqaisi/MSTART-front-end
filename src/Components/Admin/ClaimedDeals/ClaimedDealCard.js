@@ -29,7 +29,7 @@ export default function AcceptedCard({ element }) {
           <strong>Currency:</strong> {element.currency}
         </ListGroup.Item>
         <ListGroup.Item>
-          <strong>User claimed deal:</strong> {element.user_id}
+          <strong>UserID for claimed deals:</strong> {element.user_id}
         </ListGroup.Item>
       </ListGroup>
     </Card>
