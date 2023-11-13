@@ -27,9 +27,10 @@ REACT_APP_PASS_CLOUD=iykekvur
 
 ```
 npm install
+```
 Configure API Endpoint:
 Open the src/config.js file and update the API_ENDPOINT variable with the URL of your DealHub API.
-```
+
 If you want to use your local server during development, you can set **REACT_APP_SERVER_URL** to your local server's URL, for example:
 ```
 REACT_APP_SERVER_URL=http://localhost:5000
