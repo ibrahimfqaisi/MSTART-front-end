@@ -11,8 +11,8 @@ Welcome to DealHub Frontend! This React application provides a user-friendly int
 
 2. **Clone the Repository:**
    ```
-   git clone git@github.com:your-username/your-frontend-repo.git
-   cd your-frontend-repo
+   git clonegit@github.com:ibrahimfqaisi/MSTART-front-end.git
+   cd MSTART-front-end
     ```
 
 3. **Create Environment Variables:
