@@ -41,10 +41,13 @@ REACT_APP_SERVER_URL=http://localhost:5000
 ```
 npm start
 ```
-6. **Features**
-Explore the user-friendly interface to interact with DealHub API.
-[Add more features here...]
-7. **Folder Structure**
+## To access the administrative features within the user interface using our database, kindly use the provided administrator credentials:
+
+Email: admin@admin.com
+
+Password: admin
+
+6. **Folder Structure**
 ```
 .
 ├── App.css
