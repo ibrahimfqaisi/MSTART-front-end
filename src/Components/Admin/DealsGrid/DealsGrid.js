@@ -65,7 +65,7 @@ export default function DealsGrid() {
   }, [navigate, myPages]);
 
   useEffect(() => {
-    console.log(2, DealsData);
+    // console.log(2, DealsData);
   }, [DealsData]);
 
   return (

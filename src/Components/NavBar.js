@@ -12,9 +12,7 @@ const NavBar = () => {
   const navigate = useNavigate();
 
   const handlShowUserPage = () => {
-    // setUserData(userData...)
     setUserData(userData.showAdminPage = false);
-    console.log(userData);
     Cookies.set('userData', JSON.stringify(userData), { expires: 1 / 96 }); // 1/96 is equivalent to 15 minutes
     navigate('/');
 
@@ -24,7 +22,6 @@ const NavBar = () => {
   const handlShowAdminPage = () => {
     // setUserData(userData...)
     setUserData(userData.showAdminPage = true);
-    console.log(userData);
     Cookies.set('userData', JSON.stringify(userData), { expires: 1 / 96 }); // 1/96 is equivalent to 15 minutes
     navigate('/');
     window.location.reload();
@@ -35,7 +32,6 @@ const NavBar = () => {
     if (userDataCookie) {
       const userData = JSON.parse(userDataCookie);
       setUserData(userData);
-      console.log('User Data from Cookies:', userData);
     } else {
       console.log('User Data not found in Cookies');
     }
@@ -50,9 +46,7 @@ const NavBar = () => {
     Cookies.remove('userData');
     // Clear the userData state
     setUserData(null);
-    console.log('User Data removed from Cookies');
     navigate("/", { replace: true });
-    // Add any additional sign-out logic if needed
   };
 
   return (
@@ -60,7 +54,7 @@ const NavBar = () => {
       <Container>
         <Navbar.Brand href="/">DealHub</Navbar.Brand>
         <Nav className="me-auto">
-          {console.log(55555555555, userData)}
+          {/* {console.log(55555555555, userData)} */}
           {userData ? (
             userData.is_admin ? (
               userData.showAdminPage ? (<>

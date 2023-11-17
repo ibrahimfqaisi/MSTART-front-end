@@ -11,7 +11,7 @@ function SearchById({ setSearchID, handleIdSubmit }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSearchID(ownerId);
-    console.log(ownerId)
+    // console.log(ownerId)
     handleIdSubmit(ownerId)
   };
 

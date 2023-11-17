@@ -34,9 +34,9 @@ export default function AcceptedDeals() {
     }
   }
   async function handleIdSubmit(searchIDd) {
-    console.log(searchIDd,555555675676637376376378678678678678);
+    // console.log(searchIDd,555555675676637376376378678678678678);
     let url = `${process.env.REACT_APP_SERVER_URL}/claimedDealsAdmin?userId=${userData.id}&page=1&searchUserId=${searchIDd}`;
-    console.log(url);
+    // console.log(url);
     try {
       const response = await fetch(url, {
         method: 'get',
@@ -88,7 +88,7 @@ export default function AcceptedDeals() {
   }, [navigate, myPages]);
 
   useEffect(() => {
-    console.log(2, DealsData);
+    // console.log(2, DealsData);
   }, [DealsData]);
 
   return (

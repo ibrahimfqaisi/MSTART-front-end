@@ -6,8 +6,8 @@ export default function DealGridCard({ element }) {
   const cardStyle = {
     width: '18rem',
     marginBottom: '20px',
-    background: '#f8f9fa', // Set your desired background color
-    borderRadius: '10px', // Optional: Add border-radius for a rounded look
+    background: '#f8f9fa', 
+    borderRadius: '10px', 
   };
 
   return (

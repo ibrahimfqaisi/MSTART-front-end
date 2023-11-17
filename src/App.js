@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./Components/Home";
 import NavBar from "./Components/NavBar";
 import Footer from "./Components/Footer";
-import "./App.css"; // Import your CSS file
+import "./App.css";
 
 import Profile from "./Components/Profile/Profile";
 import Signin from "./Components/Signin";

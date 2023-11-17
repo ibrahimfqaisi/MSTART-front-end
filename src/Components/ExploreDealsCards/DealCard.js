@@ -20,18 +20,16 @@ export default function DealCard({ element, userid }) {
             body: JSON.stringify(data),
         });
 
-        // const receivedData = await response.json();
 
         if (response.status === 201) {
             alert("Deal claimed successfully!");
             window.location.reload();
 
-            // Set data as a cookie with a 15-minute expiration time
         } else if (response.status === 401) {
             alert("Invalid email or password");
         }
     };
-    console.log(element);
+    // console.log(element);
     return (
         <>
             <Card style={{ width: '18rem' }}>

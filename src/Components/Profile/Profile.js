@@ -41,8 +41,8 @@ export default function Profile() {
       const responseData = await response.json();
       const UrlPhoto = `https://res.cloudinary.com/${process.env.REACT_APP_NAME_CLOUD}/image/upload/${responseData.public_id}`;
       let url = `${process.env.REACT_APP_SERVER_URL}/update-photo-url`;
-      console.log(UrlPhoto);
-      console.log(url);
+      // console.log(UrlPhoto);
+      // console.log(url);
 
       let data = {
         userId: ProfileData.id,
