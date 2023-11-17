@@ -10,7 +10,7 @@ export default function ExploreDeals() {
   const navigate = useNavigate();
 
   async function getDeals(id) {
-    console.log(id);
+    // console.log(id);
     let url = `${process.env.REACT_APP_SERVER_URL}/Deals?userId=${id}`;
     try {
       const response = await fetch(url, {
@@ -24,7 +24,7 @@ export default function ExploreDeals() {
 
       if (response.status === 200) {
         const DealsData1 = receivedData;
-        console.log(1111, DealsData1);
+        // console.log(1111, DealsData1);
 
         setDealsData(receivedData);
       }
@@ -62,7 +62,7 @@ export default function ExploreDeals() {
   }, [navigate]);
 
   useEffect(() => {
-    console.log(2, DealsData);
+    // console.log(2, DealsData);
   }, [DealsData]);
 
   return (

@@ -28,7 +28,6 @@ const DealCard = ({ element, userid }) => {
             const updatedDeal = await response.json();
 
             if (response.status === 200) {
-                // Update the status in the local state
                 setUpdatedStatus(updatedDeal.status);
             } else {
                 console.error('Failed to update deal status');

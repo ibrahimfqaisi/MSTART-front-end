@@ -50,7 +50,7 @@ export default function AddDeal({ userid }) {
 
     if (response.status === 201) {
       const dealData = receivedData;
-      console.log(dealData);
+      // console.log(dealData);
       alert('Deal added successfully!');
       window.location.reload(); // Reload the page
     } else {
@@ -61,7 +61,7 @@ export default function AddDeal({ userid }) {
   return (
     <div
       className="d-flex justify-content-center align-items-center"
-      style={{ height: '100vh', background: '#f8f9fa' }} // Light gray background color
+      style={{ height: '100vh', background: '#f8f9fa' }} 
     >
       <Form
         onSubmit={handleButtonClick}

@@ -62,7 +62,7 @@ const AddAdmin = () => {
   return (
     <div
       className="d-flex flex-column align-items-center justify-content-center"
-      style={{ height: '100vh', background: '#f8f9fa' }} // Light gray background color
+      style={{ height: '100vh', background: '#f8f9fa' }} 
     >
       <Form
         onSubmit={handleButtonClick}
@@ -89,7 +89,6 @@ const AddAdmin = () => {
             <option value="">Select Gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
-            <option value="other">Other</option>
           </Form.Control>
         </FloatingLabel>
         <FloatingLabel controlId="floatingDateOfBirth" label="Date of Birth" className="mb-3">

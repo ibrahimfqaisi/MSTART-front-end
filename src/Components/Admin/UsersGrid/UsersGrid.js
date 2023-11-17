@@ -61,8 +61,8 @@ const UsersGrid = () => {
 
   const handleDeleteUser = async () => {
     try {
-      console.log(selectedUserIds);
-      console.log(userData);
+      // console.log(selectedUserIds);
+      // console.log(userData);
 
       setShowDeleteConfirmation(true); // Show the delete confirmation modal
     } catch (error) {
@@ -83,7 +83,7 @@ const UsersGrid = () => {
       });
 
       if (response.status === 200) {
-        console.log('Users deleted successfully');
+        // console.log('Users deleted successfully');
         getDeals(userData.id, myPages);
         setSelectedUserIds([]); // Clear the selectedUserIds after successful deletion
       } else {
@@ -146,7 +146,7 @@ const UsersGrid = () => {
   }, [navigate, myPages]);
 
   useEffect(() => {
-    console.log(UsersData);
+    // console.log(UsersData);
   }, [UsersData]);
 
   return (
